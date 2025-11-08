@@ -1,0 +1,9 @@
+[env]
+framework = "arduino"
+board = "esp32:esp32:esp32"
+
+[dependencies]
+# THÊM THƯ VIỆN CẦN THIẾT VÀO DÒNG SAU
+libraries = [
+  "PubSubClient"  # Tên thư viện MQTT
+]

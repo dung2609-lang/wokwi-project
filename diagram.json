@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "author": "Dung Nguyen",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 144, "left": -52.76, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -53.6,
+      "left": -151.38,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -13.2,
+      "left": -15.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 23.15,
+      "left": 48,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -64.8,
+      "left": 136.2,
+      "attrs": { "volume": "0.2" }
+    }
+  ],
+  "connections": [
+    [ "pir1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pir1:OUT", "esp:23", "green", [ "v76.8", "h153.46" ] ],
+    [ "led1:A", "r1:1", "blue", [ "h0" ] ],
+    [ "r1:2", "esp:2", "blue", [ "v278.4", "h-58.8" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "h-9.2", "v144" ] ],
+    [ "bz1:1", "esp:15", "orange", [ "v297.6", "h-115.2" ] ],
+    [ "bz1:2", "esp:GND.3", "black", [ "v0" ] ],
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ]
+  ],
+  "dependencies": {}
+}
